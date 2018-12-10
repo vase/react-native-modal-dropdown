@@ -281,13 +281,16 @@ export default class ModalDropdown extends Component {
   }
 
   _renderDropdown() {
-    const {scrollEnabled, renderSeparator, showsVerticalScrollIndicator, keyboardShouldPersistTaps} = this.props;
+    const {scrollEnabled, showsVerticalScrollIndicator, keyboardShouldPersistTaps} = this.props;
     return (
       <FlatList scrollEnabled={scrollEnabled}
                 style={styles.list}
                 data={this._dataSource}
                 renderItem={this._renderRow}
                 keyExtractor={(index) => index}
+                automaticallyAdjustContentInsets={false}
+                showsVerticalScrollIndicator={showsVerticalScrollIndicator}
+                keyboardShouldPersistTaps={keyboardShouldPersistTaps}
       />
     );
   }
