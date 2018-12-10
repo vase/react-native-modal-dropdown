@@ -283,7 +283,7 @@ export default class ModalDropdown extends Component {
   _renderDropdown() {
     const {scrollEnabled, renderSeparator, showsVerticalScrollIndicator, keyboardShouldPersistTaps} = this.props;
     return (
-      <FlatList scrollEnabled={false}
+      <FlatList scrollEnabled={scrollEnabled}
                 style={styles.list}
                 data={this._dataSource}
                 renderItem={this._renderRow}
@@ -374,15 +374,6 @@ export default class ModalDropdown extends Component {
       });
     }
   }
-
-  _renderSeparator = (sectionID, rowID, adjacentRowHighlighted) => {
-    const key = `spr_${rowID}`;
-    return (
-      <View style={styles.separator}
-            key={key}
-      />
-    );
-  };
 }
 
 const styles = StyleSheet.create({
